@@ -155,7 +155,7 @@ npm-watch: ## Watch assets.
 .PHONY: npm-watch
 #---------------------------------------------#
 
-first-install: composer-install npm-install npm-build sf-perm sf-dd sf-dc sf-dm sf-dmm sf-fixtures sf-start sf-open ## First install.
+first-install: composer-install sf-perm sf-dd sf-dc sf-dm sf-dmm sf-fixtures sf-start sf-open ## First install.
 .PHONY: first-install
 
 start: sf-start sf-open ## Start project.
