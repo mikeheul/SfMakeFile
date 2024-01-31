@@ -1,3 +1,21 @@
+#---DOCKER---#
+DOCKER = docker
+DOCKER_RUN = $(DOCKER) run
+DOCKER_COMPOSE = docker compose
+DOCKER_COMPOSE_UP = $(DOCKER_COMPOSE) up -d
+DOCKER_COMPOSE_STOP = $(DOCKER_COMPOSE) stop
+#------------#
+
+## === 🐋  DOCKER ================================================
+docker-up: ## Start docker containers.
+	$(DOCKER_COMPOSE_UP)
+.PHONY: docker-up
+
+docker-stop: ## Stop docker containers.
+	$(DOCKER_COMPOSE_STOP)
+.PHONY: docker-stop
+#---------------------------------------------#
+
 #---SYMFONY--#
 SYMFONY = symfony
 SYMFONY_SERVER_START = $(SYMFONY) serve -d
