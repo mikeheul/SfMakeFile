@@ -3,15 +3,18 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<h1>Products</h1>
 
-{% for product in products %}
-    <twig:ProductComponent
-        name="{{ product.name }}"
-        price="{{ product.price }}"
-        category="{{ product.category }}"
-        description="{{ product.description }}"
-    />
-{% endfor %}
+<div class="products">
+    {% for product in products %}
+    <div class="product-container">
+        <twig:ProductComponent
+            name="{{ product.name }}"
+            price="{{ product.price }}"
+            category="{{ product.category }}"
+            description="{{ product.description }}"
+        />
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}

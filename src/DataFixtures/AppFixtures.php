@@ -17,7 +17,10 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create("fr_FR");
-        $faker->addProvider(new \Bezhanov\Faker\Provider\Commerce($faker));
+        \Bezhanov\Faker\ProviderCollectionHelper::addAllProvidersTo($faker);
+        /**
+         * https://github.com/mbezhanov/faker-provider-collection
+         */
 
         for ($i = 0; $i < self::NUMBER_CATEGORY; $i++) {
             $category = new Category();
