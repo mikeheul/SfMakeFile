@@ -180,7 +180,7 @@ npm-watch: ## Watch assets.
 init-db: sf-dd sf-dc sf-dm sf-mm sf-dmm sf-fixtures
 .PHONY: init-db
 
-first-install: composer-install sf-perm sf-dd sf-dc sf-dm sf-dmm sf-fixtures sf-start sf-open ## First install.
+first-install: composer-install sf-perm init-db sf-start sf-open ## First install.
 .PHONY: first-install
 
 start: sf-start sf-open ## Start project.
