@@ -31,7 +31,7 @@ class AppFixtures extends Fixture
             $product = new Product();
             $product->setName($faker->productName);
             $product->setPrice($faker->numberBetween(100, 1000));
-            $product->setDescription($faker->realText(10));
+            $product->setDescription($faker->paragraphs(3, true));
             $randomCategoryId = rand(1, self::NUMBER_CATEGORY);
             // dd($randomCategoryId);
             $randomCategory = $manager->getRepository(Category::class)->find($randomCategoryId);
