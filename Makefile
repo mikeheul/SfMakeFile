@@ -76,6 +76,10 @@ sf-mm: ## Make migrations.
 	$(SYMFONY_CONSOLE) make:migration
 .PHONY: sf-mm
 
+sf-migrations-files:
+	rm -rf migrations/*
+.PHONY: sf-migrations-files
+
 sf-dm: ## Drop migrations
 	rm -rf migrations/* & $(SYMFONY_CONSOLE) doctrine:schema:drop --force --no-interaction
 .PHONY: sf-dm
