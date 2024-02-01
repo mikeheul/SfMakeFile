@@ -100,6 +100,10 @@ sf-mf: ## Make symfony Form
 	$(SYMFONY_CONSOLE) make:form
 .PHONY: sf-mf
 
+sf-mtc:
+	$(SYMFONY_CONSOLE) make:twig-component
+.PHONY: sf-mtc
+
 sf-perm: ## Fix permissions.
 	chmod -R 777 var
 .PHONY: sf-perm
