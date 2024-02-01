@@ -17,9 +17,11 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create("fr_FR");
+        $faker->addProvider(new \Bezhanov\Faker\Provider\Commerce($faker));
+
         for ($i = 0; $i < self::NUMBER_CATEGORY; $i++) {
             $category = new Category();
-            $category->setName(ucfirst($faker->words(1, true)));
+            $category->setName(ucfirst($faker->category));
             $manager->persist($category);
         }
 
@@ -27,7 +29,7 @@ class AppFixtures extends Fixture
         
         for($i = 0; $i < self::NUMBER_PRODUCT; $i++) {
             $product = new Product();
-            $product->setName($faker->words(3, asText: true));
+            $product->setName($faker->productName);
             $product->setPrice($faker->numberBetween(100, 1000));
             $product->setDescription($faker->realText(10));
             $randomCategoryId = rand(1, self::NUMBER_CATEGORY);

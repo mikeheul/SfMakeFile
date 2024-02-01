@@ -6,7 +6,12 @@
 <h1>Products</h1>
 
 {% for product in products %}
-    {{ product }} ({{ product }})<br>
+    <twig:ProductComponent
+        name="{{ product.name }}"
+        price="{{ product.price }}"
+        category="{{ product.category }}"
+        description="{{ product.description }}"
+    />
 {% endfor %}
 
 {% endblock %}

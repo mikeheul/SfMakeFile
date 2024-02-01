@@ -77,7 +77,7 @@ sf-mm: ## Make migrations.
 .PHONY: sf-mm
 
 sf-dm: ## Drop migrations
-	$(SYMFONY_CONSOLE) doctrine:schema:drop --force
+	rm -rf migrations/* & $(SYMFONY_CONSOLE) doctrine:schema:drop --force --no-interaction
 .PHONY: sf-dm
 
 sf-dmm: ## Migrate.
@@ -176,6 +176,9 @@ npm-watch: ## Watch assets.
 	$(NPM_WATCH)
 .PHONY: npm-watch
 #---------------------------------------------#
+
+init-db: sf-dd sf-dc sf-dm sf-mm sf-dmm sf-fixtures
+.PHONY: init-db
 
 first-install: composer-install sf-perm sf-dd sf-dc sf-dm sf-dmm sf-fixtures sf-start sf-open ## First install.
 .PHONY: first-install
