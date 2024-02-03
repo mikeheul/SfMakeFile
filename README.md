@@ -17,7 +17,7 @@ This is a Symfony-based web application that includes a section to display produ
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/mikeheul/SfMakeCommands.git [name_repo]
+    git clone https://github.com/mikeheul/SfMakeFile.git [name_repo]
     ```
 
 2. Install dependencies:
