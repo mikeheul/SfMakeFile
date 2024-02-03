@@ -10,4 +10,17 @@ RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
 
 RUN apt update
 
-COPY . /var/www/
+COPY --chown=www-data:www-data . /var/www/
+
+COPY ./docker/apache.conf /etc/apache2/sites-available/000-default.conf
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+RUN cd /var/www && \
+composer install
+
+USER www-data
+
+WORKDIR /var/www/
+
+EXPOSE 80
