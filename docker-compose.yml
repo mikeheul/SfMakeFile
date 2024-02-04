@@ -1,0 +1,30 @@
+version: '3'
+services:
+    web_app:
+        build: .
+        container_name: web-app
+        depends_on:
+            - db_app
+        ports:
+            - "80:80"
+        volumes:
+            - ./log:/var/log/apache2
+            - ./app:/var/www/html
+            - ./vhosts:/etc/apache2/sites-enabled
+        networks:
+            - net-app
+    db_app:
+        image: mysql:5.7
+        container_name: data_app
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=symfony-docker
+        volumes:
+            - ./db:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        networks:
+            - net-app
+networks:
+    net-app:
